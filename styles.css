@@ -7,3 +7,177 @@
 .font3{
     font-family: 'Noto Sans', sans-serif;
 }
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ box-sizing: border-box;
+}
+.body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: cadetblue;
+}
+.container{
+    position: relative;
+    width: 450px;
+    height: 105px;
+    background: #fff;
+    padding: 28px 32px;
+    overflow: hidden;
+    border-radius: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    transition: .6s ease-out;
+
+
+}
+.areab{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+    
+}
+.areab input{
+    color:lightseagreen;
+    font-size: 23px;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-color: #fff;
+    text-align: center;
+    outline: none;
+    margin: 8px;
+}
+.areab input::placeholder{
+    font-size: 20px;
+    font-weight: 500;
+    color: #008F8C;
+    text-transform: capitalize;
+}
+.areab button{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color: #023535;
+    background-color: cornsilk;
+    border-radius: 50px;
+    border-color: cornsilk;
+    outline: none;
+    font-size: 27px;
+    transition: .4s ease;
+}
+.areab button:hover{
+    color: #fff;
+    background: #023535;
+}
+.areab i{
+  font-size: 27px;
+  color: #023535;
+} 
+
+.climacaja{
+    text-align: center;
+}
+.climacaja img{
+    width: 60px;
+    margin-top: 30px;
+}
+.climacaja .temperatura{
+    position: relative;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #023535;
+    margin-top: 30px;
+    margin-left: -16px;
+}
+.climacaja span{
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 4px;
+}
+.climacaja .descripción{
+    font-size: 22px;
+    font-weight: 500;
+    color: #023535;
+    text-transform: capitalize;
+}
+.cdetalles{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.cdetalles .humedad, .cdetalles .viento{
+    font-size: 22px;
+    color: #023535;
+    width: 50%;
+    height: 100px;
+    display: flex;
+}
+.cdetalles .humedad{
+    padding-left: 20px;
+    justify-content: flex-start;
+
+}
+.cdetalles .viento{
+    padding-left: 20px;
+    justify-content: flex-end;
+    
+}
+.cdetalles i{
+    color:#008F8C;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+.cdetalles span{
+    color:#023535;
+    font-size: 22px;
+    font-weight: 500;
+}
+.cdetalles p{
+    color:#023535;
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.error{
+    text-align: center;
+    margin-top: 45px;
+    justify-content: flex;
+    transition: .6 ease-out;
+    scale: 0;
+    opacity: 0;
+    display: none;
+}
+.error img{
+    width: 75%;
+}
+.error p{
+    color: #008F8C;
+    font-family: 'Kanit' sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+
+}
+.climacaja, .cdetalles{
+    opacity: 0;
+    scale: 0;
+}
+
+
+.fade-in{
+    animation: 0.5s fadeIn forwards;
+    animation-delay: 0.5s;
+}
+@keyframes fadeIn{
+    to{
+        scale:1;
+        opacity: 1; 
+    }
+}
