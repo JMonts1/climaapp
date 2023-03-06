@@ -13,3 +13,5 @@ Muestra la información como
 
 # Proximamente
 Predicciones de 7 y 14 días
+Idioma en español
+Cambiar de celcius a farenheit
