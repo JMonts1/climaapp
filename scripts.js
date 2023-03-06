@@ -53,13 +53,17 @@ search.addEventListener('click', ()=> {
                     case 'Haze':
                         image.src ='img/nebli.png';
                         break;
+                    case 'Smoke':
+                        image.src ='img/nebli.png';
+                        break;
                     default:
                         image.src='';
                     
             }
         }
         /*aqui se manda ya la información al HTML para mostrarlo al usuario*/
-            if(temperatura){
+            
+        if(temperatura){
                 temperatura.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             }
             if(detalles){
