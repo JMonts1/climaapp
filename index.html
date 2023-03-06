@@ -14,21 +14,25 @@
 </head>
 <body class="font1 body">
    <div class="container">
+    <!--areab corresponde a la sección donde se comenzará la busqueda -->
         <div class="areab">
             <i class="fa-solid fa-city"></i>    
             <input type="text" class="font1" id="texto" placeholder="Buscar ciudad"></input>
             <button  class="fa-sharp fa-solid fa-magnifying-glass font3"></button>
         </div>
+        <!--al momento de no encontrar una ciudad o esté mal escrita, se mandará esto al usuario, que es el error section-->
         <div class="error">
             <img class="ima" src="404.png">
             <p>Rayos y tormentas, tu ciudad no está.</p>
         </div>
+        <!--aquí se mostrará la información relacionada al clima de la ciudad en cuestión-->
         <div class="climacaja">
             <img src="">
             <p class="temperatura"></p>
             <p class="detalles"></p>
             <p class="cbuscada"></p>
         </div>
+        <!--la seccion cdetalles muestra lo que es la humedad y viento que se complementa con climacaja-->
         <div class="cdetalles">
             <div class="humedad">
                 <i class="fa-sharp fa-solid fa-droplet"></i>
@@ -49,7 +53,7 @@
 
 
 
-
+   <!--scripts-->
     <script src="scripts.js"></script>
     <script src="https://kit.fontawesome.com/133ebcd262.js" crossorigin="anonymous"></script>
 

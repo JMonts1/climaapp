@@ -15,3 +15,7 @@ Muestra la información como
 Predicciones de 7 y 14 días
 Idioma en español
 Cambiar de celcius a farenheit
+# Sobre mí
+Me llamo Carlos Eduardo Hernández Montes y actualmente estudio universidad como ingeniero en sistemas computacionales.
+Actualmente sé algo sobre programación pero poco a poco llegaré, lo sé, muy lejos.
+Estaré subiendo mini-proyectos aquí la cual me ayudarán a progresar mis habilidades y conocimientos.

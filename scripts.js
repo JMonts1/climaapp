@@ -1,15 +1,16 @@
+/*Variables que importan y hacen uso del contenido HTML*/
 const container =document.querySelector('.container');
 const search =document.querySelector('.areab button');
 const cclima =document.querySelector('.climacaja');
 const cdeta =document.querySelector('.cdetalles');
 const erro =document.querySelector('.error');
 
-
+/*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
-
+/*esta API key la encuentras al registrarte en open wheatermap */
     const APIKey = 'a80b57a65614ddb3cfc42ad79f0836e0';
     const ciudad = document.querySelector(".areab input").value;
-    
+    /*if donde busca la ciudad obteniendo los valores tales como clima, humedad, detalles en sí*/
     if(ciudad=== '')
         return;
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=sp,es`).then(response => response.json())
@@ -34,6 +35,7 @@ search.addEventListener('click', ()=> {
             const detalles = document.querySelector(".climacaja .detalles");
             const humedad = document.querySelector(".cdetalles .humedad span");
             const viento = document.querySelector(".cdetalles .viento span");
+            /*al momento de validar el if primero se hace la funcion switch case para mostrar las imagenes ya sea el caso solicitado*/
             if (image) {
                 switch(json.weather[0].main){
                     case 'Clear':
@@ -56,7 +58,7 @@ search.addEventListener('click', ()=> {
                     
             }
         }
-  
+        /*aqui se manda ya la información al HTML para mostrarlo al usuario*/
             if(temperatura){
                 temperatura.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             }
