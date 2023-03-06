@@ -13,7 +13,7 @@ search.addEventListener('click', ()=> {
     /*if donde busca la ciudad obteniendo los valores tales como clima, humedad, detalles en sí*/
     if(ciudad=== '')
         return;
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=sp,es`).then(response => response.json())
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=es`).then(response => response.json())
     .then(json=>
         {
 
@@ -70,7 +70,7 @@ search.addEventListener('click', ()=> {
                 detalles.innerHTML = `${json.weather[0].description}`;
             }
             if(ciu){
-                ciu.innerHTML =  `${ciudad}`;
+                ciu.innerHTML =  `${json.name}`;
             }
             if(humedad){
                 humedad.innerHTML =  `${json.main.humidity}%`;
