@@ -1,6 +1,6 @@
 const container =document.querySelector('.container');
 const search =document.querySelector('.areab button');
-const cclima =document.querySelector('.cajaclima');
+const cclima =document.querySelector('.climacaja');
 const cdeta =document.querySelector('.cdetalles');
 const erro =document.querySelector('.error');
 
@@ -9,11 +9,11 @@ search.addEventListener('click', ()=> {
 
     const APIKey = 'a80b57a65614ddb3cfc42ad79f0836e0';
     const ciudad = document.querySelector(".areab input").value;
-    const cp = document.querySelector('.areab input').value;
     
     if(ciudad=== '')
         return;
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}`).then(response=> response.json()).then(json=>
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=sp,es`).then(response => response.json())
+    .then(json=>
         {
 
             if(json.cod === '404'){
@@ -24,11 +24,14 @@ search.addEventListener('click', ()=> {
                 erro.classList.add('fadeIn');
                 return;
             }
+
             erro.style.display = 'none';
-                erro.classList.remove('fadeIn');
-            const image = document.querySelector('.cajaclima img');
-            const temperatura = document.querySelector('.cajaclima .temperatura');
-            const detalles = document.querySelector(".cajaclima .detalles");
+            erro.classList.remove('fadeIn');
+
+            const image = document.querySelector('.climacaja img');
+            const ciu = document.querySelector('.climacaja .cbuscada');
+            const temperatura = document.querySelector('.climacaja .temperatura');
+            const detalles = document.querySelector(".climacaja .detalles");
             const humedad = document.querySelector(".cdetalles .humedad span");
             const viento = document.querySelector(".cdetalles .viento span");
             if (image) {
@@ -59,6 +62,9 @@ search.addEventListener('click', ()=> {
             }
             if(detalles){
                 detalles.innerHTML = `${json.weather[0].description}`;
+            }
+            if(ciu){
+                ciu.innerHTML =  `${ciudad}`;
             }
             if(humedad){
                 humedad.innerHTML =  `${json.main.humidity}%`;

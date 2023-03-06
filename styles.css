@@ -10,6 +10,7 @@
 *{
  margin: 0;
  padding: 0;
+ border: 0;
  outline: none;
  box-sizing: border-box;
 }
@@ -45,11 +46,11 @@
 .areab input{
     color:lightseagreen;
     font-size: 23px;
+    width: 80%;
     font-weight: 500;
     text-transform: capitalize;
     border-color: #fff;
     text-align: center;
-    outline: none;
     margin: 8px;
 }
 .areab input::placeholder{
@@ -75,8 +76,9 @@
     background: #023535;
 }
 .areab i{
-  font-size: 27px;
-  color: #023535;
+    position: absolute;
+    font-size: 27px;
+     color: #023535;
 } 
 
 .climacaja{
@@ -94,12 +96,18 @@
     margin-top: 30px;
     margin-left: -16px;
 }
-.climacaja span{
+.climacaja .temperature span{
     position: absolute;
     font-size: 1.5rem;
     margin-left: 4px;
 }
-.climacaja .descripción{
+.climacaja .detalles{
+    font-size: 22px;
+    font-weight: 500;
+    color: #023535;
+    text-transform: capitalize;
+}
+.climacaja .cbuscada{
     font-size: 22px;
     font-weight: 500;
     color: #023535;
@@ -116,6 +124,7 @@
     color: #023535;
     width: 50%;
     height: 100px;
+    align-items: center;
     display: flex;
 }
 .cdetalles .humedad{
@@ -147,15 +156,16 @@
 
 .error{
     text-align: center;
-    margin-top: 45px;
+    margin-top: 50px;
     justify-content: flex;
     transition: .6 ease-out;
+    width: 100%;
     scale: 0;
     opacity: 0;
     display: none;
 }
 .error img{
-    width: 75%;
+    width: 35%;
 }
 .error p{
     color: #008F8C;
