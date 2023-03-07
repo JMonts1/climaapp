@@ -4,7 +4,52 @@ const search =document.querySelector('.areab button');
 const cclima =document.querySelector('.climacaja');
 const cdeta =document.querySelector('.cdetalles');
 const erro =document.querySelector('.error');
+//import {langu} from "alerts.js";
 
+let lang;
+(async () => {
+    const { value } = await Swal.fire({
+      title: 'Hola',
+      text: 'Selecciona tu idioma',
+      icon: 'info',
+      allowOutsideClick: false,
+      input: 'select',
+      inputPlaceholder: 'Idioma',
+      inputValue: lang,
+      inputOptions: {
+        es: 'Español',
+        en: 'English'
+      }
+    });
+  
+    if (lang) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      lang=value;
+      if (lang === 'es') {
+        Toast.fire({
+          icon: 'success',
+          title: 'Idioma al español'
+        });
+
+      }
+      if (lang === 'en') {
+        Toast.fire({
+          icon: 'success',
+          title: 'Language to english'
+        });
+      }
+    }
+  })()
 /*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
 /*esta API key la encuentras al registrarte en open wheatermap */
@@ -13,7 +58,7 @@ search.addEventListener('click', ()=> {
     /*if donde busca la ciudad obteniendo los valores tales como clima, humedad, detalles en sí*/
     if(ciudad=== '')
         return;
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=es`).then(response => response.json())
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=${lang}`).then(response => response.json())
     .then(json=>
         {
 
