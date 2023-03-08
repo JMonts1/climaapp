@@ -25,14 +25,17 @@
         toast.addEventListener('mouseleave', Swal.resumeTimer);
       }
     });
-
+    
     if (lang === 'es') {
+      
       Toast.fire({
         icon: 'success',
-        title: 'Idioma al español'
+        title: 'Idioma al español',
+        
       });
     }
     if (lang === 'en') {
+      
       Toast.fire({
         icon: 'success',
         title: 'Language to english'
