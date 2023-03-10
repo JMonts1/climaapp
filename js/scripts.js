@@ -14,8 +14,6 @@ const erro =document.querySelector('.error');
 const mp = document.querySelector('.mapa');
 const day = document.querySelector('.stat')
 
-/*import { lang } from "./alerts";*/
-
 /*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
 /*esta API key la encuentras al registrarte en open wheatermap */
