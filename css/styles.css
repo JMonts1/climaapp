@@ -34,6 +34,39 @@
 
 
 }
+.stat{
+    position: relative;
+    width: 800px;
+    height: 450px;
+    background: #fff;
+    padding: 28px 32px;
+    overflow: hidden;
+    border-radius: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    transition: .6s ease-in;
+    margin-left: 1%;
+    margin-top: 10%;
+    scale: 0;
+    opacity: 0;
+    display: none;
+
+
+}
+.mapa{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+    
+}
+.mapa img{
+    width: 650px;
+    margin-top: 30px;
+}
+
+
 .areab{
     width: 100%;
     height: min-content;
@@ -64,7 +97,7 @@
     width: 50px;
     height: 50px;
     color: #023535;
-    background-color: cornsilk;
+    background-color: #888686;
     border-radius: 50px;
     border-color: cornsilk;
     outline: none;
@@ -79,13 +112,29 @@
     position: absolute;
     font-size: 27px;
      color: #023535;
-} 
-
+}
 .climacaja{
     text-align: center;
 }
+.climacaja button{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color: #023535;
+    background-color:#888686;
+    border-radius: 50px;
+    border-color: #fff;
+    outline: none;
+    font-size: 27px;
+    transition: .4s ease;
+}
+.climacaja button:hover{
+    color:rgb(0, 0, 0);
+    background-color: red;
+}
+
 .climacaja img{
-    width: 60px;
+    width: 120px;
     margin-top: 30px;
 }
 .climacaja .temperatura{
@@ -113,6 +162,7 @@
     color: #023535;
     text-transform: capitalize;
 }
+
 .cdetalles{
     width: 100%;
     display: flex;
@@ -165,7 +215,7 @@
     display: none;
 }
 .error img{
-    width: 35%;
+    width: 30%;
 }
 .error p{
     color: #008F8C;
@@ -175,6 +225,24 @@
     margin-top: 12px;
 
 }
+.error button{
+    cursor: pointer;
+    width: 80px;
+    height: 50px;
+    color: #023535;
+    background-color: #888686;
+    border-radius: 50px;
+    border-color: #fff;
+    outline: none;
+    font-size: 27px;
+    transition: .4s ease;
+}
+.error button:hover{
+    color:rgb(0, 0, 0);
+    background-color: red;
+}
+
+
 .climacaja, .cdetalles{
     opacity: 0;
     scale: 0;

@@ -3,22 +3,48 @@
 
 /*Variables que importan y hacen uso del contenido HTML*/
 const container =document.querySelector('.container');
+const body = document.querySelector('.body');
 const search =document.querySelector('.areab button');
+const txt = document.getElementById("texto");
 const cclima =document.querySelector('.climacaja');
+const btd =document.querySelector('.climacaja button');
+const btd1 =document.querySelector('.error button');
 const cdeta =document.querySelector('.cdetalles');
 const erro =document.querySelector('.error');
-import { lang } from "./alerts";
+const mp = document.querySelector('.mapa');
+const day = document.querySelector('.stat')
+
+/*import { lang } from "./alerts";*/
 
 /*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
 /*esta API key la encuentras al registrarte en open wheatermap */
     const APIKey = 'a80b57a65614ddb3cfc42ad79f0836e0';
     const ciudad = document.querySelector(".areab input").value;
-    
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
     /*if donde busca la ciudad obteniendo los valores tales como clima, humedad, detalles en sí*/
-    if(ciudad=== '')
+    if(ciudad=== ''){
+        Toast.fire({
+            icon: 'warning',
+            title: 'Ingresa una ciudad',
+            
+          });
+          
         return;
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=${lang}`).then(response => response.json())
+    }
+        
+        
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&units=metric&appid=${APIKey}&lang=es`).then(response => response.json())
     .then(json=>
         {
 
@@ -35,6 +61,7 @@ search.addEventListener('click', ()=> {
             erro.classList.remove('fadeIn');
 
             const image = document.querySelector('.climacaja img');
+            const dev = document.querySelector('.mapa img')
             const ciu = document.querySelector('.climacaja .cbuscada');
             const temperatura = document.querySelector('.climacaja .temperatura');
             const detalles = document.querySelector(".climacaja .detalles");
@@ -84,24 +111,70 @@ search.addEventListener('click', ()=> {
                 viento.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             }   
             
-
+            if(dev){
+                dev.src = `https://www.mapquestapi.com/staticmap/v5/map?center=${ciudad}&key=ck2OXUAJsF0iz999XGQ62jyXo8AXOVp7&size=600,400&zoom=13`;
+            } /*<-- link para mostrar miagen clima->>*/
             if(cclima){
                 cclima.style.display = '';
             }
             if (cdeta){
                 cdeta.style.display = '';
             }
+            if(day){
+                day.style.display = '';
+            }
+            /*if(mp){
+                mp.style.display = '';
+            }*/
             if(cclima){
                 cclima.classList.add('fadeIn');
             }
             if(cdeta){
                 cdeta.classList.add('fadeIn');
             }
+            if(mp)
+            {
+                mp.classList.add('fadeIn');
+            }
             if(container){
-                container.style.height= '590px'
+                container.style.height= '590px';
+                container.style.animationDelay = '6s';
+            }
+            if(body){
+                body.style.justifyContent = 'left';
+            }
+            if(day){
+
+                day.style.height= '450px';
+                day.style.width='800px'
+                day.style.display= 'block';
+                day.classList.add('fadeIn');
+
             }
             
+            
     });
-
+    btd.addEventListener('click', ()=> {
+        container.style.height= '105px';
+        cclima.style.display ='none';
+        cdeta.style.display = 'none';
+        day.style.display = 'none';
+        mp.style.display= 'none';
+        texto.value = "";
+        body.style.justifyContent = 'center';
+        container.style.animationDelay = '6s';
+        
+        return;
+    });
+    btd1.addEventListener('click', ()=> {
+        container.style.height= '105px';
+        cclima.style.display ='none';
+        cdeta.style.display = 'none';
+        texto.value = "";
+        body.style.justifyContent = 'center';
+        container.style.animationDelay = '6s';
+        return;
+    });
 });
+
 /*CARLOS EDUARDO HERNANDEZ MONTES*/

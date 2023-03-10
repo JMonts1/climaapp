@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Noto+Sans:wght@100&family=Ubuntu&display=swap" rel="stylesheet">
@@ -13,25 +13,33 @@
     <title>What a weather</title>
 </head>
 <body class="font1 body">
-   <div class="container">
+
+    
+<div class="container">
     <!--areab corresponde a la sección donde se comenzará la busqueda -->
+        
         <div class="areab">
+            
             <i class="fa-solid fa-city"></i>    
             <input type="text" class="font1" id="texto" placeholder="Buscar ciudad"></input>
             <button  class="fa-sharp fa-solid fa-magnifying-glass font3"></button>
         </div>
         <!--al momento de no encontrar una ciudad o esté mal escrita, se mandará esto al usuario, que es el error section-->
         <div class="error">
-            <img class="ima" src="404.png">
+            <img class="ima" src="./img/404.png">
             <p>Rayos y tormentas, tu ciudad no está.</p>
+            <button class="fa-sharp fa-solid fa-xmark font3"></button>
         </div>
         <!--aquí se mostrará la información relacionada al clima de la ciudad en cuestión-->
         <div class="climacaja">
+            
             <img src="">
             <p class="temperatura"></p>
             <p class="detalles"></p>
             <p class="cbuscada"></p>
+            <button class="fa-sharp fa-solid fa-xmark font3"></button>
         </div>
+        
         <!--la seccion cdetalles muestra lo que es la humedad y viento que se complementa con climacaja-->
         <div class="cdetalles">
             <div class="humedad">
@@ -49,15 +57,27 @@
                 </div>
             </div>
         </div>
+        
    </div>
-
+   <!--<div class="mapa">
+    <img src="">-->
+</div>
+<div class="stat">
+           <h1 class="font2">Predicción semanal</h1>
+           <div class="info">
+            <h4 class="font1">Aquí irá la información semanal del clima</h4>
+           </div>
+           <div class="mapa">
+            <img src="">
+            </div>
+</div>
 
 
    <!--scripts-->
-    <script src="scripts.js"></script>
+    <script src="./js/scripts.js"></script>
     <script src="https://kit.fontawesome.com/133ebcd262.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="module" src="alerts.js"></script>    
+    <!--<script type="module" src="alerts.js"></script>-->    
 <!--CARLOS EDUARDO HERNANDEZ MONTES-->
 </body>
 </html>
