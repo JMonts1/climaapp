@@ -1,4 +1,4 @@
-(async () => {
+/*(async () => {
   const { value: lang } = await Swal.fire({
     title: 'Hola',
     text: 'Selecciona tu idioma',
@@ -42,4 +42,4 @@
       });
     }
   }
-})();
+})();*/
