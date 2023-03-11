@@ -50,8 +50,10 @@ search.addEventListener('click', ()=> {
 
             if(json.cod === '404'){
                 container.style.height= '400px';
+                body.style.justifyContent = 'center';
                 cclima.style.display ='none';
                 cdeta.style.display = 'none';
+                day.style.display = 'none';
                 erro.style.display= 'block';
                 erro.classList.add('fadeIn');
                 return;
