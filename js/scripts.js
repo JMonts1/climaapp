@@ -13,6 +13,8 @@ const cdeta =document.querySelector('.cdetalles');
 const erro =document.querySelector('.error');
 const mp = document.querySelector('.mapa');
 const day = document.querySelector('.stat')
+const am = document.querySelector('.ama')
+const at = document.querySelector('.ata')
 
 /*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
@@ -65,6 +67,18 @@ search.addEventListener('click', ()=> {
             const detalles = document.querySelector(".climacaja .detalles");
             const humedad = document.querySelector(".cdetalles .humedad span");
             const viento = document.querySelector(".cdetalles .viento span");
+            const snrs = document.querySelector(".ama .fecha");
+            const snst = document.querySelector(".ata .fecha2");
+
+            // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&appid=${APIKey}`).then(response => response.json())
+            // .then(jsons=>
+            //     {
+            //         for (var i = 0; i < 4; i++) {
+            //             n += i;
+            //             console.log(jsons.main.temp)
+            //           }
+            //     })
+            
             /*al momento de validar el if primero se hace la funcion switch case para mostrar las imagenes ya sea el caso solicitado*/
             if (image) {
                 switch(json.weather[0].main){
@@ -92,7 +106,7 @@ search.addEventListener('click', ()=> {
             }
         }
         /*aqui se manda ya la información al HTML para mostrarlo al usuario*/
-            
+        
         if(temperatura){
                 temperatura.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             }
@@ -109,9 +123,32 @@ search.addEventListener('click', ()=> {
                 viento.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             }   
             
-            if(dev){
-                dev.src = `https://www.mapquestapi.com/staticmap/v5/map?center=${ciudad}&key=ck2OXUAJsF0iz999XGQ62jyXo8AXOVp7&size=600,400&zoom=13`;
-            } /*<-- link para mostrar miagen clima->>*/
+            let snrise = `${json.sys.sunrise}`
+            let snset = `${json.sys.sunset}`; // Unix timestamp en segundos
+            let fecha = new Date(snrise * 1000); // Convertir a milisegundos
+            let fech = new Date(snset * 1000)
+            let y1 = fecha.getFullYear();
+            let ms1 = fecha.getMonth() + 1;
+            let d1 = fecha.getDate();
+            let h1 = ("0" + fecha.getHours()).slice(-2);
+            let m1 = ("0" + fecha.getMinutes()).slice(-2);
+            let s1 = ("0" + fecha.getSeconds()).slice(-2);
+            let y2 = fech.getFullYear();
+            let ms2 = fech.getMonth() + 1;
+            let d2 = fech.getDate();
+            let h2 = ("0" + fech.getHours()).slice(-2);
+            let m2 = ("0" + fech.getMinutes()).slice(-2);
+            let s2 = ("0" + fech.getSeconds()).slice(-2);
+            if (snrs){
+                snrs.innerHTML = `${d1}/${ms1}/${y1} <br> &nbsp; ${h1}:${m1}:${s1}`;
+            }
+            if (snst){
+                snst.innerHTML = `${d2}/${ms2}/${y2} <br> &nbsp; ${h2}:${m2}:${s2}`;
+            }   
+            
+
+
+           
             if(cclima){
                 cclima.style.display = '';
             }
@@ -121,19 +158,29 @@ search.addEventListener('click', ()=> {
             if(day){
                 day.style.display = '';
             }
-            /*if(mp){
-                mp.style.display = '';
-            }*/
+            if(am){
+                am.style.display = '';
+            }
+            if(at){
+                at.style.display = '';
+            }
+            
             if(cclima){
                 cclima.classList.add('fadeIn');
             }
             if(cdeta){
                 cdeta.classList.add('fadeIn');
             }
-            if(mp)
-            {
-                mp.classList.add('fadeIn');
+            if(am){
+                am.classList.add('fadeIn')
+                am.style.animationDelay= '3s';
+                
             }
+            if(at){
+                at.classList.add('fadeIn');
+                at.style.animationDelay= '4s';
+            }
+            
             if(container){
                 container.style.height= '590px';
                 container.style.animationDelay = '6s';
@@ -157,7 +204,8 @@ search.addEventListener('click', ()=> {
         cclima.style.display ='none';
         cdeta.style.display = 'none';
         day.style.display = 'none';
-        mp.style.display= 'none';
+        am.style.display= 'none';
+        at.style.display= 'none';
         texto.value = "";
         body.style.justifyContent = 'center';
         container.style.animationDelay = '6s';

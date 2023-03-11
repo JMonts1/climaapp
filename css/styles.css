@@ -49,21 +49,48 @@
     scale: 0;
     opacity: 0;
     display: none;
-
-
-}
-.mapa{
-    width: 100%;
-    height: min-content;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-   
-    
+
+
 }
-.mapa img{
-    width: 650px;
-    margin-top: 30px;
+.ama .fecha, .ama .dat{
+    position: relative;
+    font-size: 25px;
+    font-weight: 800;
+    color: #023535;
+    margin-top: -5px;
+    margin-left: 3px;
+    font-family: 'Kanit' sans-serif;
+}
+.ama img{
+    width: 120px;
+    margin-top: 52px;
+}
+.ata img{
+    width: 120px;
+    margin-top: 52px;
+}
+.ata{
+    position: relative;
+    margin-left: 137px;
+    margin-top: -261px;
+
+}
+.ama{
+    position: relative;
+    margin-left: -4px;
+    margin-top: -37px;
+
+}
+.ata .fecha2, .ata .dat{
+    position: relative;
+    font-size: 25px;
+    font-weight: 800;
+    color: #023535;
+    margin-top: -5px;
+    margin-left: 3px;
+    font-family: 'Kanit' sans-serif;
+
 }
 
 
