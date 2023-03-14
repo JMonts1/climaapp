@@ -14,7 +14,9 @@ const erro =document.querySelector('.error');
 const mp = document.querySelector('.mapa');
 const day = document.querySelector('.stat')
 const am = document.querySelector('.ama')
-const at = document.querySelector('.ata')
+const at = document.querySelector('.ata');
+const logo = document.querySelector('.tit')
+const lg = document.querySelector('.t2');
 
 /*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
@@ -54,8 +56,12 @@ search.addEventListener('click', ()=> {
                 cclima.style.display ='none';
                 cdeta.style.display = 'none';
                 day.style.display = 'none';
+                logo.style.display = 'none';
+                lg.style.display = 'none';
                 erro.style.display= 'block';
                 erro.classList.add('fadeIn');
+                //logo.style.display = '';
+                
                 return;
             }
 
@@ -63,7 +69,6 @@ search.addEventListener('click', ()=> {
             erro.classList.remove('fadeIn');
 
             const image = document.querySelector('.climacaja img');
-            const dev = document.querySelector('.mapa img')
             const ciu = document.querySelector('.climacaja .cbuscada');
             const temperatura = document.querySelector('.climacaja .temperatura');
             const detalles = document.querySelector(".climacaja .detalles");
@@ -71,6 +76,7 @@ search.addEventListener('click', ()=> {
             const viento = document.querySelector(".cdetalles .viento span");
             const snrs = document.querySelector(".ama .fecha");
             const snst = document.querySelector(".ata .fecha2");
+            
 
             // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&appid=${APIKey}`).then(response => response.json())
             // .then(jsons=>
@@ -126,8 +132,8 @@ search.addEventListener('click', ()=> {
             }   
             
             let snrise = `${json.sys.sunrise}`
-            let snset = `${json.sys.sunset}`; // Unix timestamp en segundos
-            let fecha = new Date(snrise * 1000); // Convertir a milisegundos
+            let snset = `${json.sys.sunset}`; 
+            let fecha = new Date(snrise * 1000);
             let fech = new Date(snset * 1000)
             let y1 = fecha.getFullYear();
             let ms1 = fecha.getMonth() + 1;
@@ -147,10 +153,6 @@ search.addEventListener('click', ()=> {
             if (snst){
                 snst.innerHTML = `${d2}/${ms2}/${y2} <br> &nbsp; ${h2}:${m2}:${s2}`;
             }   
-            
-
-
-           
             if(cclima){
                 cclima.style.display = '';
             }
@@ -166,7 +168,17 @@ search.addEventListener('click', ()=> {
             if(at){
                 at.style.display = '';
             }
+
             
+            if(logo){
+                logo.style.display = 'none';
+
+            }
+            if(lg){
+                lg.style.display = '';
+            }
+            
+           
             if(cclima){
                 cclima.classList.add('fadeIn');
             }
@@ -180,12 +192,12 @@ search.addEventListener('click', ()=> {
             }
             if(at){
                 at.classList.add('fadeIn');
-                at.style.animationDelay= '4s';
+                at.style.animationDelay= '.5';
             }
             
             if(container){
                 container.style.height= '590px';
-                container.style.animationDelay = '6s';
+                container.style.animationDelay = '1';
             }
             if(body){
                 body.style.justifyContent = 'left';
@@ -198,6 +210,10 @@ search.addEventListener('click', ()=> {
                 day.classList.add('fadeIn');
 
             }
+            if(lg){
+                lg.classList.add('fadeIn');
+            }
+            
             
             
     });
@@ -208,6 +224,8 @@ search.addEventListener('click', ()=> {
         day.style.display = 'none';
         am.style.display= 'none';
         at.style.display= 'none';
+        logo.style.display = '';
+        lg.style.display = 'none';
         texto.value = "";
         body.style.justifyContent = 'center';
         container.style.animationDelay = '6s';
@@ -218,9 +236,11 @@ search.addEventListener('click', ()=> {
         container.style.height= '105px';
         cclima.style.display ='none';
         cdeta.style.display = 'none';
+        lg.style.display = 'none';
         texto.value = "";
         body.style.justifyContent = 'center';
         container.style.animationDelay = '6s';
+        logo.style.display = '';
         return;
     });
 });
