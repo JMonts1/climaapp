@@ -109,6 +109,10 @@
     
 
 }
+.map{
+    width: 120px;
+    margin-top: 52px;
+}
 .ata .fecha2, .ata .dat{
     position: relative;
     font-size: 25px;

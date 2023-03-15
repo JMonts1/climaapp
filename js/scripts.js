@@ -5,13 +5,14 @@
 const container =document.querySelector('.container');
 const body = document.querySelector('.body');
 const search =document.querySelector('.areab button');
+const bq = document.querySelector('.areab input');
 const txt = document.getElementById("texto");
 const cclima =document.querySelector('.climacaja');
 const btd =document.querySelector('.climacaja button');
 const btd1 =document.querySelector('.error button');
 const cdeta =document.querySelector('.cdetalles');
 const erro =document.querySelector('.error');
-const mp = document.querySelector('.mapa');
+const mp = document.querySelector('.map');
 const day = document.querySelector('.stat')
 const am = document.querySelector('.ama')
 const at = document.querySelector('.ata');
@@ -76,6 +77,8 @@ search.addEventListener('click', ()=> {
             const viento = document.querySelector(".cdetalles .viento span");
             const snrs = document.querySelector(".ama .fecha");
             const snst = document.querySelector(".ata .fecha2");
+            const mpw = document.querySelector(".map img");
+
             
 
             // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&appid=${APIKey}`).then(response => response.json())
@@ -118,19 +121,28 @@ search.addEventListener('click', ()=> {
         if(temperatura){
                 temperatura.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             }
-            if(detalles){
+        if(detalles){
                 detalles.innerHTML = `${json.weather[0].description}`;
             }
-            if(ciu){
+        if(ciu){
                 ciu.innerHTML =  `${json.name}`;
             }
-            if(humedad){
+        if(humedad){
                 humedad.innerHTML =  `${json.main.humidity}%`;
             }
-            if (viento){
+        if (viento){
                 viento.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
-            }   
-            
+            }
+       if (mpw) {
+        let lt = Math.round(json.coord.lat);
+        let ln = Math.round(json.coord.lon);
+        console.log(lt + ln);
+        mpw.src = `https://tile.openweathermap.org/map/temp_new/5/${lt}/${ln}.png?appid=${APIKey}`;
+        }
+
+
+
+        
             let snrise = `${json.sys.sunrise}`
             let snset = `${json.sys.sunset}`; 
             let fecha = new Date(snrise * 1000);
