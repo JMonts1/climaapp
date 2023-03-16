@@ -18,6 +18,9 @@ const am = document.querySelector('.ama')
 const at = document.querySelector('.ata');
 const logo = document.querySelector('.tit')
 const lg = document.querySelector('.t2');
+const urm = document.getElementById('largeMapLink');
+const urm2 = document.getElementById('dirMapLink');
+const fram = document.querySelector('.map iframe');
 
 /*listener que al momento de hacer click haga la funcion buscar*/
 search.addEventListener('click', ()=> {
@@ -77,17 +80,13 @@ search.addEventListener('click', ()=> {
             const viento = document.querySelector(".cdetalles .viento span");
             const snrs = document.querySelector(".ama .fecha");
             const snst = document.querySelector(".ata .fecha2");
-            const mpw = document.querySelector(".map img");
 
             
 
             // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&appid=${APIKey}`).then(response => response.json())
             // .then(jsons=>
             //     {
-            //         for (var i = 0; i < 4; i++) {
-            //             n += i;
-            //             console.log(jsons.main.temp)
-            //           }
+            //             console.log(jsons.city);
             //     })
             
             /*al momento de validar el if primero se hace la funcion switch case para mostrar las imagenes ya sea el caso solicitado*/
@@ -133,12 +132,12 @@ search.addEventListener('click', ()=> {
         if (viento){
                 viento.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             }
-       if (mpw) {
-        let lt = Math.round(json.coord.lat);
-        let ln = Math.round(json.coord.lon);
-        console.log(lt + ln);
-        mpw.src = `https://tile.openweathermap.org/map/temp_new/5/${lt}/${ln}.png?appid=${APIKey}`;
-        }
+        let lt = json.coord.lat;
+        let ln = json.coord.lon;
+        fram.src = `https://www.bing.com/maps/embed?h=400&w=500&cp=${lt}~${ln}&lvl=13&typ=d&sty=r&src=SHELL&FORM=MBEDV8`;
+        urm.href = `https://www.bing.com/maps?cp=${lt}~${ln}&amp;sty=r&amp;lvl=13&amp;FORM=MBEDLD`;
+        urm2.href = `https://www.bing.com/maps/directions?cp=${lt}~${ln}&amp;sty=r&amp;lvl=13.955591479114542&amp;rtp=~pos.cp=${lt}~${ln}___&amp;FORM=MBEDLD`;
+        
 
 
 

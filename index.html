@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Noto+Sans:wght@100&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="/img/favicon.ico">
+    <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/>
     <title>WeatherWise</title>
 </head>
 <body class="font1 body">
@@ -83,7 +85,14 @@
             <p class="fecha2"></p>
         </div>
         <div class="map">
-            <img src="">
+            <div>
+                <iframe width="400" height="300" frameborder="0" src="" scrolling="no">
+                </iframe>
+                <div class="minfo">
+                   <a id="largeMapLink" target="_blank" href="">Ver mapa más grande</a> &nbsp; | &nbsp;
+                   <a id="dirMapLink" target="_blank" href="">Obtener indicaciones</a>
+               </div>
+           </div>
         </div>
     </div>
 

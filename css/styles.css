@@ -110,8 +110,18 @@
 
 }
 .map{
-    width: 120px;
-    margin-top: 52px;
+    width: 500px;
+    margin-top: -276px;
+    margin-left: 352px;
+    position: absolute;
+    transition: .6 ease-in;
+}
+.map .minfo{
+    white-space: nowrap; 
+    width: 500px; 
+    padding: 6px;
+    margin-left: 6vh;
+
 }
 .ata .fecha2, .ata .dat{
     position: relative;
