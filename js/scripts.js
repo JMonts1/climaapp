@@ -1,6 +1,6 @@
 'use strict';
 
-
+console.log("hola mundo");
 /*Variables que importan y hacen uso del contenido HTML*/
 const container =document.querySelector('.container');
 const body = document.querySelector('.body');
@@ -267,7 +267,7 @@ bq.addEventListener('keypress', function(event) {
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
-            showConfirmButton: false,
+            showConfirmButton: false,    
             timer: 3000,
             timerProgressBar: true,
             didOpen: (toast) => {
